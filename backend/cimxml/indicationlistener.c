@@ -25,6 +25,10 @@
 
 #include <pthread.h>
 #include <sys/socket.h>
+#ifdef __APPLE__
+# define __SOCKADDR_ARG   struct sockaddr *__restrict
+# define __CONST_SOCKADDR_ARG __const struct sockaddr *
+#endif
 #include <netinet/in.h>
 #include <fcntl.h>
 #include <errno.h>
